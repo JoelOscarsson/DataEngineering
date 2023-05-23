@@ -1,0 +1,2 @@
+Hello from note_home
+current_directory is: /Users/joeloscarsson/Documents/www/DataEngineering
