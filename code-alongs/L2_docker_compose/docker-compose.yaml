@@ -6,4 +6,9 @@ services:
       - "8050:8050" # porten för att kunna komma in i localhost
     container_name:  L2
 
-    
+    # named volume
+    volumes:
+     - dice_simulator:/app/src/
+
+volumes:
+  dice_simulator:
