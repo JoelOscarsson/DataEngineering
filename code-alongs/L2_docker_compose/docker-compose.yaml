@@ -1,0 +1,9 @@
+services:
+  python:
+    #image: python:3.11 - ett sätt att bygga på
+    build: .
+    ports:
+      - "8050:8050" # porten för att kunna komma in i localhost
+    container_name:  L2
+
+    
