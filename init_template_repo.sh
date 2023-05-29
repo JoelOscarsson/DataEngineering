@@ -10,3 +10,7 @@ for i in {1..5}; do
   echo "This is file $i" > file$i.txt
 done
 
+while IFS= read -r pokemon
+do
+  echo "pokemon: $pokemon"
+done < pokemon_list.txt

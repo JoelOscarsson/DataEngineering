@@ -1,2 +1,4 @@
-Hello from note_home
+hello from note_home
 current_directory is: /Users/joeloscarsson/Documents/www/DataEngineering
+Hello again
+Hello again
