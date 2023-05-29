@@ -7,8 +7,15 @@ services:
     container_name:  L2
 
     # named volume
-    volumes:
-     - dice_simulator:/app/src/
+    # volumes:
+    #  - dice_simulator:/app/src/
 
-volumes:
-  dice_simulator:
+    # bind mount
+    volumes:
+      - ./src:/app/src/
+
+# volumes:
+#   dice_simulator:
+
+
+
