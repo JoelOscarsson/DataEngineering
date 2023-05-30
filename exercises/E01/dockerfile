@@ -1,7 +1,23 @@
 FROM python:3.9
 
+WORKDIR /E01
+
+ADD src .
+
 RUN pip install matplotlib plotly_express pandas numpy dash scikit-learn
 
-# WORKDIR exercises/E01
+CMD ["python", "./ex1_0_setup.py"]
 
-CMD ["python", "./src/ex1_0_setup.py"]
+
+# FROM python:3.9
+
+# WORKDIR /Users/joeloscarsson/Documents/www/DataEngineering/exercises/E01
+
+# RUN pip install matplotlib plotly_express pandas numpy dash scikit-learn
+
+# COPY src/ex1_0_setup.py .
+
+# CMD ["python", "ex1_0_setup.py"]
+
+
+
