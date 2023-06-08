@@ -22,8 +22,8 @@ def _save_dice_experiment(task_instance):
         file.write(f"Dice rolls {datetime.now()} \n")
         file.write(f"{simulation_data} \n\n")
 
-
-with DAG(dag_id = "dice_simulator", start_date=datetime(2023,6,7)):
+# catchup - allt som jag missat från tiden till nu hämtar den upp
+with DAG(dag_id = "dice_simulator", start_date=datetime(2023,6,7), schedule = "*/30 8 * * *", catchup=True):
     setup_directories = BashOperator(task_id = "setup_directories",
                                       bash_command=f"mkdir -p {simulation_path}")
     dice_rolls = PythonOperator(task_id = "dice_rolls", 
