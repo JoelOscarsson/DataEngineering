@@ -19,8 +19,16 @@ events = np.array([
     ('graduation_party', np.datetime64('2024-06-09T16:30'))
 ], dtype=[('Event', 'U20'), ('Date', 'datetime64[s]')])
 
-# creating a dataframe for the output
-df= pd.DataFrame(events)
+
+# Get the current datetime
+current_datetime = np.datetime64(datetime.now())
+
+# Calculate time differences in seconds
+time_diffs = events['Date'] - current_datetime
+time_left = pd.to_timedelta(time_diffs, unit='s').floor('s').astype(str)
+
+df = pd.DataFrame({'Event': events['Event'], 'Date': events['Date'], 'Time left': time_left})
+
 print(df)
 
 # logging the output
