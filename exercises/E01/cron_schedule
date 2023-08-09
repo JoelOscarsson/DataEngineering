@@ -1,0 +1,1 @@
+*/2 * * * * python /folderlogs/countdown.py >> /folderlogs/countdown.log 2>&1

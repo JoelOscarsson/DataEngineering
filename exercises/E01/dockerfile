@@ -1,14 +1,38 @@
+# FROM python:3.9
+
+# WORKDIR /E01
+
+# COPY src .
+
+# COPY installed_packages.sh .
+
+# COPY folderlogs .
+
+# RUN pip install matplotlib plotly_express pandas numpy dash scikit-learn
+
+# RUN apt update && apt install cron nano -y
+
+# CMD ["python", "./ex1_0_setup.py"]
+
+
 FROM python:3.9
 
 WORKDIR /E01
 
-ADD src .
+COPY src .
+COPY installed_packages.sh .
+COPY folderlogs .
 
+# Adding cron schedule file
+COPY cron_schedule .
+
+# Install cron and other dependencies
 RUN pip install matplotlib plotly_express pandas numpy dash scikit-learn
-
 RUN apt update && apt install cron nano -y
 
-CMD ["python", "./ex1_0_setup.py"]
+RUN crontab cron_schedule
+
+CMD ["python", "./ex1_0_setup.py", "cron", "-f"]
 
 
 

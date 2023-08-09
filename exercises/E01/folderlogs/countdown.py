@@ -39,7 +39,7 @@ for event in events:
     countdown_log += f"Countdown to {event_name}: {days_left} days, {hours_left} hours, {minutes_left} minutes\n"
 
 # Print the countdown log
-print(countdown_log)
+# print(countdown_log)
 
 # Write the countdown log to the file
 with open(log_file, 'w') as file:
