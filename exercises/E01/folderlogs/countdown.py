@@ -1,5 +1,5 @@
 import os
-from datetime import datetime
+from datetime import datetime # Måste jag lägga till denna i dockerfilen?
 import numpy as np
 import timeit
 import pandas as pd
