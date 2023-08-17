@@ -17,7 +17,7 @@ COPY python_script.py .
 RUN chmod +x installed_packages.sh running_scripts.sh
 
 # Define the command to run when the container starts
-CMD ["./running_scripts.sh"]
+CMD ["python", "./running_scripts.sh"]
 
 
 
