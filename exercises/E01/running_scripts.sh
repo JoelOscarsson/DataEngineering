@@ -1,2 +1,8 @@
-python run_first_program.py  # 
-python run_second_program.py
+#!/bin/bash
+
+
+python folderlogs/countdown.py
+python src/ex1_0_setup.py
+python src/ex1_1_setup.py
+
+
