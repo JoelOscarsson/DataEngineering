@@ -7,8 +7,6 @@ WORKDIR /E01
 # COPY cron_schedule /app/cron_schedule
 COPY folderlogs .
 COPY src .
-
-
 COPY installed_packages.sh .
 COPY running_scripts.sh .
 COPY python_script.py .
@@ -16,32 +14,51 @@ COPY python_script.py .
 # Make the script files executable
 RUN chmod +x installed_packages.sh running_scripts.sh
 
+RUN apt update && apt install cron nano -y
+
+# Install the dependencies
+RUN pip install matplotlib plotly_express pandas numpy dash scikit-learn
+
 # Define the command to run when the container starts
-CMD ["python", "./running_scripts.sh"]
+CMD ["bash", "./running_scripts.sh"]
+
+
+# # CMD ["python", "./ex1_0_setup.py"]
+
+# # This is the python script that the cron schedule is gonna run but now the issue is i can't have multiple CMDs
+# # so i need to figure out how to run this script after the setup script has run.
+# # CMD ["python", "folderlogs/countdown.py"]
+
+
+
+
+
+
+
 
 
 
 #-----------------------------------
-# # # FROM python:3.9
+# FROM python:3.9
 
-# # # WORKDIR /E01
+# WORKDIR /E01
 
-# # # COPY src .
+# COPY src .
 
-# # # COPY installed_packages.sh .
+# COPY installed_packages.sh .
 
-# # # COPY folderlogs .
+# COPY folderlogs .
 
-# # # RUN pip install matplotlib plotly_express pandas numpy dash scikit-learn
+# RUN pip install matplotlib plotly_express pandas numpy dash scikit-learn
 
-# # # RUN apt update && apt install cron nano -y
+# RUN apt update && apt install cron nano -y
 
 
-# # # CMD ["python", "./ex1_0_setup.py"]
+# CMD ["python", "./ex1_0_setup.py"]
 
-# # # # This is the python script that the cron schedule is gonna run but now the issue is i can't have multiple CMDs
-# # # # so i need to figure out how to run this script after the setup script has run.
-# # # CMD ["python", "folderlogs/countdown.py"]
+# # This is the python script that the cron schedule is gonna run but now the issue is i can't have multiple CMDs
+# # so i need to figure out how to run this script after the setup script has run.
+# CMD ["python", "folderlogs/countdown.py"]
 
 
 #------------------------------------------------------------------------------
