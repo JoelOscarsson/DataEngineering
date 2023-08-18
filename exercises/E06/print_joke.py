@@ -1,3 +1,5 @@
+import random
+
 reactions = [
     "Hilarious!",
     "Oh, the humanity!",
@@ -13,7 +15,7 @@ reactions = [
 
 
 def get_random_reaction():
-    pass  # Fill this one in
+    return random.choice(reactions)
 
 
 def print_random_joke_and_reaction():
