@@ -1,0 +1,9 @@
+# version: '3'
+services:
+  python:
+    image: python:3.11
+    container_name: E02.1
+    volumes:
+      - ./E02/src:/app
+    working_dir: /app
+    command: python app.py
