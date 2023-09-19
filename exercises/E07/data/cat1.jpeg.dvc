@@ -1,0 +1,5 @@
+outs:
+- md5: d2ed9abb42afa708c2d439624d26ad38
+  size: 40670
+  hash: md5
+  path: cat1.jpeg
